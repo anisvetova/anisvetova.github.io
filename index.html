@@ -13,7 +13,9 @@
   --cream: #EDE8DF;
   --terra: #9B5E3B;
   --terra-light: #B8714A;
-  --sage-light: #A8BFB2;
+  --tiffany: #0ABAB5;
+  --tiffany-pale: rgba(10,186,181,0.08);
+  --tiffany-border: rgba(10,186,181,0.25);
   --sand: #C8AD94;
   --dark: #1E1C1A;
   --muted: #6B625A;
@@ -31,7 +33,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .hero-left:hover img{transform:scale(1.04)}
 .hero-left-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,28,26,0.12) 0%,rgba(30,28,26,0.03) 100%)}
 .hero-right{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:4rem 4rem 4rem 3.5rem;position:relative}
-.eyebrow{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--sand);opacity:0.7;margin-bottom:2rem;font-weight:400}
+.eyebrow{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--tiffany);opacity:0.85;margin-bottom:2rem;font-weight:400}
 .hero-right h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:300;line-height:1.08;color:#F8F5EF;margin-bottom:1.8rem;letter-spacing:-0.01em}
 .hero-right h1 em{color:var(--sand);font-style:italic;font-weight:300}
 .hero-sub{font-size:13px;color:rgba(248,245,239,0.55);max-width:360px;line-height:2;margin-bottom:3rem;font-weight:300}
@@ -39,20 +41,24 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .btn-primary{display:inline-flex;align-items:center;gap:0.8rem;background:var(--terra);color:#F8F5EF;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:1rem 2.5rem;cursor:pointer;border:none;font-weight:500;transition:background 0.25s,transform 0.25s}
 .btn-primary:hover{background:var(--terra-light);transform:translateY(-1px)}
 .hero-note{font-size:11px;color:rgba(248,245,239,0.3);letter-spacing:0.08em}
+
+/* тиффани-линия под ценой */
+.hero-note span{color:var(--tiffany);opacity:0.7}
+
 .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0.35;animation:scrollBounce 2s ease-in-out infinite}
 @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 .hero-scroll span{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#F8F5EF}
-.hero-scroll-line{width:1px;height:30px;background:linear-gradient(to bottom,rgba(248,245,239,0.5),transparent)}
+.hero-scroll-line{width:1px;height:30px;background:linear-gradient(to bottom,rgba(10,186,181,0.6),transparent)}
 
 /* ── QUOTE ── */
 .intro-strip{background:var(--cream);padding:3.5rem 2rem;text-align:center}
 .intro-strip blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:300;font-style:italic;color:var(--dark);max-width:540px;margin:0 auto;line-height:1.5}
-.intro-strip cite{display:block;font-family:'Inter',sans-serif;font-size:10px;font-style:normal;letter-spacing:0.3em;text-transform:uppercase;color:var(--terra);margin-top:1.4rem;opacity:0.8}
+.intro-strip cite{display:block;font-family:'Inter',sans-serif;font-size:10px;font-style:normal;letter-spacing:0.3em;text-transform:uppercase;color:var(--tiffany);margin-top:1.4rem;opacity:0.9}
 
 /* ── PAINS ── */
 .pains{padding:6rem 2rem;background:var(--warm-white)}
 .container{max-width:760px;margin:0 auto}
-.section-label{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--terra);margin-bottom:1.2rem;font-weight:500;opacity:0.85}
+.section-label{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--tiffany);margin-bottom:1.2rem;font-weight:500;opacity:0.9}
 .pains h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;margin-bottom:0.5rem;line-height:1.2}
 .pains-intro{font-size:13px;color:var(--muted);margin-bottom:2.5rem;font-weight:300}
 .pain-list{display:flex;flex-direction:column}
@@ -70,7 +76,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .about-content h2{font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:300;margin-bottom:2rem;line-height:1.3;max-width:480px}
 .about-content p{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:1.1rem;line-height:2;max-width:460px}
 .about-content p strong{color:var(--dark);font-weight:500}
-.about-accent{margin-top:1.5rem;padding:1.5rem 2rem;border-left:2px solid var(--terra);background:rgba(155,94,59,0.06)}
+.about-accent{margin-top:1.5rem;padding:1.5rem 2rem;border-left:2px solid var(--tiffany);background:var(--tiffany-pale)}
 .about-accent p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--dark);margin:0;line-height:1.6}
 
 /* ── GUIDE ── */
@@ -79,12 +85,12 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .guide-header h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:300;margin-bottom:0.4rem}
 .guide-header p{font-size:13px;color:var(--muted);font-weight:300}
 .guide-parts{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:860px;margin:0 auto}
-.guide-part-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:var(--light-border);line-height:1;margin-bottom:0.2rem}
+.guide-part-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:var(--tiffany);opacity:0.25;line-height:1;margin-bottom:0.2rem}
 .guide-part h3{font-size:1.7rem;font-weight:400;margin-bottom:1.5rem;color:var(--dark)}
 .guide-list{list-style:none}
 .guide-list li{display:flex;gap:0.7rem;padding:0.65rem 0;border-bottom:1px solid var(--light-border);font-size:13px;color:var(--muted);font-weight:300;line-height:1.6}
 .guide-list li:last-child{border-bottom:none}
-.li-dot{color:var(--terra);flex-shrink:0;margin-top:2px}
+.li-dot{color:var(--tiffany);flex-shrink:0;margin-top:2px;opacity:0.8}
 
 /* ── CTA ── */
 .cta-section{background:var(--dark);overflow:hidden}
@@ -93,19 +99,19 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .cta-photo img{opacity:0.6;object-position:center}
 .cta-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--dark) 100%)}
 .cta-content{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
-.cta-content .section-label{color:var(--sand);opacity:0.6}
+.cta-content .section-label{color:var(--tiffany);opacity:0.8}
 .cta-content h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:#F8F5EF;margin-bottom:1rem;line-height:1.2}
 .cta-content > p{font-size:13px;color:rgba(248,245,239,0.55);font-weight:300;line-height:2;margin-bottom:2.5rem;max-width:360px}
 .cta-price{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--sand);line-height:1}
 .cta-price-note{font-size:11px;color:rgba(248,245,239,0.3);margin-top:0.3rem;margin-bottom:2rem;letter-spacing:0.08em}
 .includes{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2.5rem}
 .includes-item{display:flex;align-items:center;gap:0.7rem;font-size:12px;color:rgba(248,245,239,0.5)}
-.includes-check{width:16px;height:16px;border:1px solid var(--sage-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.includes-check svg{width:8px;height:8px;color:var(--sage-light)}
+.includes-check{width:16px;height:16px;border:1px solid var(--tiffany);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;opacity:0.7}
+.includes-check svg{width:8px;height:8px;color:var(--tiffany)}
 .btn-cta{display:inline-flex;align-items:center;gap:0.8rem;background:var(--terra);color:#F8F5EF;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:1.1rem 2.8rem;cursor:pointer;border:none;font-weight:500;transition:background 0.25s,transform 0.25s;align-self:flex-start}
 .btn-cta:hover{background:var(--terra-light);transform:translateY(-1px)}
 
-/* ── SUPPORT MODAL ── */
+/* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(30,28,26,0.7);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:1.5rem}
 .modal-overlay.open{display:flex}
 .modal{background:var(--warm-white);max-width:480px;width:100%;padding:3rem;position:relative}
@@ -115,10 +121,8 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .modal-sub{font-size:12px;color:var(--muted);margin-bottom:2rem;font-weight:300}
 .form-group{margin-bottom:1.2rem}
 .form-group label{display:block;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;font-weight:500}
-.form-group input,
-.form-group textarea{width:100%;border:1px solid var(--light-border);background:var(--ivory);padding:0.8rem 1rem;font-family:'Inter',sans-serif;font-size:13px;color:var(--dark);outline:none;transition:border-color 0.2s;resize:none}
-.form-group input:focus,
-.form-group textarea:focus{border-color:var(--terra)}
+.form-group input,.form-group textarea{width:100%;border:1px solid var(--light-border);background:var(--ivory);padding:0.8rem 1rem;font-family:'Inter',sans-serif;font-size:13px;color:var(--dark);outline:none;transition:border-color 0.2s;resize:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--tiffany)}
 .btn-send{width:100%;background:var(--terra);color:#F8F5EF;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:1rem;cursor:pointer;border:none;font-weight:500;transition:background 0.25s;margin-top:0.5rem}
 .btn-send:hover{background:var(--terra-light)}
 .form-success{display:none;text-align:center;padding:2rem 0}
@@ -126,14 +130,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .form-success span{font-size:12px;color:var(--muted)}
 
 /* ── FOOTER ── */
-footer{background:var(--dark);border-top:1px solid rgba(200,173,148,0.1);padding:2.5rem 2rem;text-align:center}
+footer{background:var(--dark);border-top:1px solid rgba(10,186,181,0.12);padding:2.5rem 2rem;text-align:center}
 .footer-inner{display:flex;flex-direction:column;align-items:center;gap:0.8rem}
 .footer-copy{color:rgba(248,245,239,0.25);font-size:11px;letter-spacing:0.15em}
-.footer-copy a{color:rgba(200,173,148,0.4);text-decoration:none;transition:color 0.2s}
-.footer-copy a:hover{color:rgba(200,173,148,0.7)}
-.footer-support{font-size:11px;letter-spacing:0.12em}
-.footer-support button{background:none;border:none;cursor:pointer;color:rgba(200,173,148,0.5);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.12em;text-decoration:underline;text-underline-offset:3px;transition:color 0.2s;padding:0}
-.footer-support button:hover{color:rgba(200,173,148,0.85)}
+.footer-copy a{color:rgba(10,186,181,0.45);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(10,186,181,0.8)}
+.footer-support button{background:none;border:none;cursor:pointer;color:rgba(10,186,181,0.4);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.12em;text-decoration:underline;text-underline-offset:3px;transition:color 0.2s;padding:0}
+.footer-support button:hover{color:rgba(10,186,181,0.8)}
 
 /* ── ANIMATIONS ── */
 .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -170,7 +173,6 @@ footer{background:var(--dark);border-top:1px solid rgba(200,173,148,0.1);padding
     <h1>Тело и голова:<br><em>инструкция,</em><br>которую не дают<br>при рождении</h1>
     <p class="hero-sub">Не очередная теория. Конкретные люди, практики и открытия — всё, что реально сработало.</p>
     <div class="hero-actions">
-      <!-- Кнопка "Получить гайд" в hero — прокрутка вниз к оплате, менять не нужно -->
       <button class="btn-primary" onclick="document.querySelector('.cta-section').scrollIntoView({behavior:'smooth'})">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v9M4 8l4 4 4-4"/></svg>
         Получить гайд
@@ -278,15 +280,15 @@ footer{background:var(--dark);border-top:1px solid rgba(200,173,148,0.1);padding
       <p class="cta-price-note">Мгновенный доступ после оплаты</p>
       <div class="includes">
         <div class="includes-item">
-          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
+          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="#0ABAB5" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
           PDF-гайд сразу после оплаты
         </div>
         <div class="includes-item">
-          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
+          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="#0ABAB5" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
           Все имена, ники и ссылки на специалистов
         </div>
         <div class="includes-item">
-          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
+          <div class="includes-check"><svg viewBox="0 0 8 8" fill="none" stroke="#0ABAB5" stroke-width="1.5"><polyline points="1,4 3,6 7,2"/></svg></div>
           Навсегда ваш — без подписки
         </div>
       </div>
@@ -307,7 +309,7 @@ footer{background:var(--dark);border-top:1px solid rgba(200,173,148,0.1);padding
   </div>
 </footer>
 
-<!-- SUPPORT MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="supportModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('supportModal').classList.remove('open')">×</button>
@@ -336,7 +338,6 @@ footer{background:var(--dark);border-top:1px solid rgba(200,173,148,0.1);padding
 </div>
 
 <script>
-/* fade-in */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -344,28 +345,19 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-/* support form — отправка через mailto */
 function sendSupport() {
   const name    = document.getElementById('fieldName').value.trim();
   const email   = document.getElementById('fieldEmail').value.trim();
   const message = document.getElementById('fieldMessage').value.trim();
-
-  if (!name || !email || !message) {
-    alert('Пожалуйста, заполните все поля');
-    return;
-  }
-
+  if (!name || !email || !message) { alert('Пожалуйста, заполните все поля'); return; }
   const to      = 'trostnikfood@gmail.com';
   const subject = encodeURIComponent('Вопрос с лендинга — ' + name);
   const body    = encodeURIComponent('Имя: ' + name + '\nEmail: ' + email + '\n\n' + message);
-
   window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-
   document.getElementById('supportForm').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
 
-/* ESC закрывает модал */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('supportModal').classList.remove('open');
 });
