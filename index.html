@@ -158,6 +158,79 @@ footer{background:var(--dark);border-top:1px solid rgba(10,186,181,0.12);padding
   .cta-content{padding:2.5rem 1.5rem}
   .modal{padding:2rem 1.5rem}
 }
+
+/* ── LEGAL ── */
+.legal-bar{{
+  background:var(--dark);
+  padding:3rem 2rem;
+  border-top:1px solid rgba(200,173,148,0.1);
+}}
+.legal-bar-inner{{
+  max-width:860px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;
+}}
+.legal-col h4{{
+  font-family:'Inter',sans-serif;font-size:10px;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--tiffany);opacity:0.8;font-weight:500;margin-bottom:0.8rem;
+}}
+.legal-col p, .legal-col a{{
+  font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;
+  font-weight:300;text-decoration:none;display:block;letter-spacing:0.05em;
+}}
+.legal-col a:hover{{color:rgba(248,245,239,0.7)}}
+
+/* ── CHECKBOX ── */
+.cta-agree{{
+  display:flex;align-items:flex-start;gap:0.7rem;
+  margin-bottom:1.5rem;
+}}
+.cta-agree input[type=checkbox]{{
+  margin-top:3px;flex-shrink:0;
+  accent-color:var(--tiffany);
+  width:14px;height:14px;cursor:pointer;
+}}
+.cta-agree label{{
+  font-size:11px;color:rgba(248,245,239,0.4);
+  line-height:1.7;cursor:pointer;
+}}
+.cta-agree label a{{
+  color:rgba(248,245,239,0.5);text-decoration:underline;
+  text-underline-offset:2px;text-decoration-color:rgba(248,245,239,0.2);
+}}
+.cta-agree label a:hover{{color:rgba(248,245,239,0.8)}}
+
+/* ── MODALS ОФЕРТА / ПОЛИТИКА ── */
+.doc-modal-overlay{{
+  position:fixed;inset:0;background:rgba(30,28,26,0.8);
+  backdrop-filter:blur(4px);z-index:200;
+  display:none;align-items:center;justify-content:center;padding:1.5rem;
+}}
+.doc-modal-overlay.open{{display:flex}}
+.doc-modal{{
+  background:var(--warm-white);max-width:680px;width:100%;
+  max-height:80vh;overflow-y:auto;padding:3rem;position:relative;
+}}
+.doc-modal-close{{
+  position:absolute;top:1.2rem;right:1.5rem;
+  background:none;border:none;cursor:pointer;
+  font-size:1.4rem;color:var(--muted);line-height:1;transition:color 0.2s;
+}}
+.doc-modal-close:hover{{color:var(--dark)}}
+.doc-modal h3{{
+  font-family:'Cormorant Garamond',serif;font-size:1.8rem;
+  font-weight:300;margin-bottom:1.5rem;
+}}
+.doc-modal h4{{
+  font-size:13px;font-weight:500;margin:1.5rem 0 0.5rem;color:var(--dark);
+}}
+.doc-modal p{{
+  font-size:12px;color:var(--muted);line-height:1.9;margin-bottom:0.8rem;
+}}
+@media(max-width:768px){{
+  .legal-bar-inner{{grid-template-columns:1fr}}
+  .doc-modal{{padding:2rem 1.5rem}}
+}}
 </style>
 </head>
 <body>
@@ -289,14 +362,46 @@ footer{background:var(--dark);border-top:1px solid rgba(10,186,181,0.12);padding
           Навсегда ваш — без подписки
         </div>
       </div>
+      <div class="cta-agree">
+        <input type="checkbox" id="agreeCheck">
+        <label for="agreeCheck" style="font-size:11px;color:rgba(248,245,239,0.4);line-height:1.7;cursor:pointer;">
+          Я принимаю условия <a href="#" onclick="openDoc('oferta');return false;" style="color:rgba(248,245,239,0.5);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(248,245,239,0.2);">публичной оферты</a>
+          и <a href="#" onclick="openDoc('privacy');return false;" style="color:rgba(248,245,239,0.5);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(248,245,239,0.2);">политики конфиденциальности</a>
+        </label>
+      </div>
       <!-- ↓↓↓ ВСТАВЬ СЮДА ССЫЛКУ ОТ PRODAMUS ИЛИ LAVA.TOP ↓↓↓ -->
-      <button class="btn-cta" onclick="window.location.href='ВСТАВЬ_ССЫЛКУ_НА_ОПЛАТУ_ЗДЕСЬ'">
+      <button class="btn-cta" onclick="buyGuide()">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v9M4 8l4 4 4-4"/></svg>
         Получить гайд — 2 970 ₽
       </button>
     </div>
   </div>
 </section>
+
+
+<!-- LEGAL BAR -->
+<div style="background:#1E1C1A;padding:3rem 2rem;border-top:1px solid rgba(200,173,148,0.1);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;">
+    <div>
+      <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#0ABAB5;opacity:0.8;font-weight:500;margin-bottom:0.8rem;">Продавец</p>
+      <p style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;margin-bottom:0.2rem;">ИП Татьянчикова Анна Сергеевна</p>
+      <p style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;margin-bottom:0.2rem;">ИНН: 165716217798</p>
+      <p style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;">ОГРНИП: 326169000136300</p>
+    </div>
+    <div>
+      <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#0ABAB5;opacity:0.8;font-weight:500;margin-bottom:0.8rem;">Контакты</p>
+      <p style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;margin-bottom:0.2rem;">По вопросам покупки:</p>
+      <a href="mailto:tat-ania@yandex.ru" style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;text-decoration:none;display:block;margin-bottom:0.2rem;" onmouseover="this.style.color='rgba(248,245,239,0.7)'" onmouseout="this.style.color='rgba(248,245,239,0.35)'">tat-ania@yandex.ru</a>
+      <a href="#" onclick="document.getElementById('supportModal').classList.add('open');return false;" style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;text-decoration:none;display:block;" onmouseover="this.style.color='rgba(248,245,239,0.7)'" onmouseout="this.style.color='rgba(248,245,239,0.35)'">Написать через форму</a>
+    </div>
+    <div>
+      <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#0ABAB5;opacity:0.8;font-weight:500;margin-bottom:0.8rem;">Документы</p>
+      <a href="#" onclick="openDoc('oferta');return false;" style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;text-decoration:none;display:block;margin-bottom:0.2rem;" onmouseover="this.style.color='rgba(248,245,239,0.7)'" onmouseout="this.style.color='rgba(248,245,239,0.35)'">Публичная оферта</a>
+      <a href="#" onclick="openDoc('privacy');return false;" style="font-size:11px;color:rgba(248,245,239,0.35);line-height:1.9;font-weight:300;letter-spacing:0.05em;text-decoration:none;display:block;margin-bottom:0.5rem;" onmouseover="this.style.color='rgba(248,245,239,0.7)'" onmouseout="this.style.color='rgba(248,245,239,0.35)'">Политика конфиденциальности</a>
+      <p style="font-size:11px;color:rgba(248,245,239,0.25);line-height:1.9;font-weight:300;letter-spacing:0.05em;">Цифровой товар. Возврат не предусмотрен после получения доступа к файлу.</p>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -359,5 +464,45 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('supportModal').classList.remove('open');
 });
 </script>
+
+<!-- МОДАЛ ОФЕРТЫ -->
+<div class="doc-modal-overlay" id="ofertaModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="doc-modal">
+    <button class="doc-modal-close" onclick="document.getElementById('ofertaModal').classList.remove('open')">×</button>
+    <h3>Публичная оферта</h3>
+    <p>Настоящая публичная оферта является официальным предложением ИП Татьянчикова Анна Сергеевна (ИНН 165716217798, ОГРНИП 326169000136300) о заключении договора купли-продажи цифрового товара.</p>
+    <h4>1. Предмет договора</h4>
+    <p>Продавец обязуется передать Покупателю цифровой информационный продукт «Тело и голова: инструкция, которую не дают при рождении» в формате PDF, а Покупатель обязуется оплатить его в соответствии с установленной ценой.</p>
+    <h4>2. Цена и оплата</h4>
+    <p>Стоимость товара составляет 2 970 (две тысячи девятьсот семьдесят) рублей. Оплата производится в рублях РФ через платёжный сервис на сайте. Доступ к товару предоставляется автоматически после подтверждения оплаты.</p>
+    <h4>3. Доставка</h4>
+    <p>Товар является цифровым и передаётся Покупателю в электронном виде (PDF-файл) на указанный при оплате email-адрес немедленно после подтверждения платежа.</p>
+    <h4>4. Возврат</h4>
+    <p>В соответствии со статьёй 26.1 Закона РФ «О защите прав потребителей» и Постановлением Правительства РФ №612, возврат надлежащего качества цифрового товара не предусмотрен после предоставления доступа к файлу. В случае технических проблем с получением файла Покупатель вправе обратиться по адресу tat-ania@yandex.ru.</p>
+    <h4>5. Контакты продавца</h4>
+    <p>ИП Татьянчикова Анна Сергеевна<br>ИНН: 165716217798 · ОГРНИП: 326169000136300<br>Email: tat-ania@yandex.ru</p>
+    <h4>6. Акцепт оферты</h4>
+    <p>Акцептом настоящей оферты является факт оплаты товара Покупателем. Совершая оплату, Покупатель подтверждает, что ознакомился с условиями оферты и принимает их в полном объёме.</p>
+  </div>
+</div>
+
+<!-- МОДАЛ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ -->
+<div class="doc-modal-overlay" id="privacyModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="doc-modal">
+    <button class="doc-modal-close" onclick="document.getElementById('privacyModal').classList.remove('open')">×</button>
+    <h3>Политика конфиденциальности</h3>
+    <p>ИП Татьянчикова Анна Сергеевна (далее — Оператор) обязуется соблюдать конфиденциальность персональных данных пользователей сайта anisvetova.github.io в соответствии с Федеральным законом №152-ФЗ «О персональных данных».</p>
+    <h4>1. Какие данные собираются</h4>
+    <p>При оформлении покупки могут быть запрошены: имя, адрес электронной почты. При обращении в поддержку: имя и email для ответа.</p>
+    <h4>2. Цели обработки данных</h4>
+    <p>Данные используются исключительно для: исполнения договора (доставки цифрового товара), ответа на обращения пользователей, улучшения качества сервиса.</p>
+    <h4>3. Хранение и защита</h4>
+    <p>Оператор принимает необходимые меры для защиты персональных данных от несанкционированного доступа. Данные не передаются третьим лицам, за исключением случаев, предусмотренных законодательством РФ.</p>
+    <h4>4. Права пользователя</h4>
+    <p>Пользователь вправе запросить удаление своих персональных данных, направив обращение на email: tat-ania@yandex.ru.</p>
+    <h4>5. Контакты</h4>
+    <p>По вопросам обработки персональных данных: tat-ania@yandex.ru</p>
+  </div>
+</div>
 </body>
 </html>
