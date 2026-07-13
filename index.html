@@ -293,11 +293,11 @@ footer { background:var(--dark); border-top:1px solid rgba(10,186,181,0.1); padd
           и <a href="#" onclick="openDoc('privacy');return false;">политики конфиденциальности</a>
         </label>
       </div>
-      
-      <a href="https://yookassa.ru/my/i/alSpalP5Lczi/l" target="_blank" class="btn-cta">
+      <!-- ВСТАВЬ ССЫЛКУ НА ОПЛАТУ ЗДЕСЬ -->
+      <button class="btn-cta" onclick="buyGuide()">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v9M4 8l4 4 4-4"/></svg>
         Получить гайд — 2 970 ₽
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -403,8 +403,18 @@ function openDoc(type) {
 function buyGuide() {
   const cb = document.getElementById('agreeCheck');
   if (!cb.checked) { alert('Пожалуйста, примите условия оферты и политики конфиденциальности'); return; }
-  window.location.href = 'ВСТАВЬ_ССЫЛКУ_НА_ОПЛАТУ_ЗДЕСЬ';
+  window.location.href = 'https://yookassa.ru/my/i/alTZbptFcX_h/l';
 }
+
+// Страница благодарности — показывается если в URL есть ?success=1
+function checkSuccess() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('success') === '1') {
+    document.getElementById('thankYouPage').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+window.addEventListener('DOMContentLoaded', checkSuccess);
 
 function sendSupport() {
   const name = document.getElementById('fieldName').value.trim();
@@ -426,5 +436,99 @@ document.addEventListener('keydown', e => {
   }
 });
 </script>
+<!-- ══ СТРАНИЦА БЛАГОДАРНОСТИ ══ -->
+<div id="thankYouPage" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#FAF6F1;
+  z-index:9999;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  text-align:center;
+">
+  <!-- Верхняя бирюзовая полоска -->
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:#0ABAB5;"></div>
+
+  <!-- Иконка -->
+  <div style="
+    width:72px;height:72px;
+    border-radius:50%;
+    background:#0ABAB5;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:1.5rem;
+  ">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF6F1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <!-- Заголовок -->
+  <h1 style="
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:clamp(1.6rem,4vw,2.4rem);
+    font-weight:400;
+    color:#2C2826;
+    margin:0 0 0.5rem;
+    line-height:1.2;
+  ">Спасибо за покупку!</h1>
+
+  <p style="
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    color:#6B5F58;
+    margin:0 0 2rem;
+    max-width:420px;
+    line-height:1.7;
+  ">
+    Твой гайд <b>«Тело и голова»</b> уже ждёт тебя.<br/>
+    Нажми кнопку ниже — и начинай прямо сейчас.
+  </p>
+
+  <!-- Кнопка скачивания -->
+  <a href="https://drive.google.com/file/d/19lqhw06zNoQFYgTCwSQlVG1S1OwvjEUP/view?usp=sharing"
+     target="_blank"
+     style="
+       display:inline-flex;
+       align-items:center;
+       gap:0.7rem;
+       background:#0ABAB5;
+       color:#FAF6F1;
+       font-family:'Inter',sans-serif;
+       font-size:0.75rem;
+       letter-spacing:0.18em;
+       text-transform:uppercase;
+       font-weight:500;
+       padding:1rem 2.5rem;
+       text-decoration:none;
+       transition:background 0.2s;
+     "
+     onmouseover="this.style.background='#089e9a'"
+     onmouseout="this.style.background='#0ABAB5'"
+  >
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M8 2v9M4 8l4 4 4-4"/>
+      <rect x="2" y="13" width="12" height="1.5" rx="0.75" fill="currentColor" stroke="none"/>
+    </svg>
+    Скачать гайд
+  </a>
+
+  <p style="
+    font-family:'Inter',sans-serif;
+    font-size:0.75rem;
+    color:#C4785A;
+    margin:1.5rem 0 0;
+    font-style:italic;
+  ">
+    Она уже внутри тебя — просто ждёт.<br/>
+    <span style="color:#9B9088;">с любовью, Ani Svetova</span>
+  </p>
+
+  <!-- Нижняя полоска -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:#0ABAB5;"></div>
+</div>
+
 </body>
 </html>
